@@ -23,6 +23,7 @@ namespace YchPr_KornilovaVaravra320
         public MainWindow()
         {
             InitializeComponent();
+            navigate_frame.NavigationService.Navigate(new Pages.AuthorizationPage());
         }
     }
 }

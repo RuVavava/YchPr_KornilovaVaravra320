@@ -1,0 +1,1138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище YchebnPraktika_Kornilova320Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Academicians">
+          <Key>
+            <PropertyRef Name="ID_academicians" />
+          </Key>
+          <Property Name="ID_academicians" Type="int" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="150" />
+          <Property Name="Birthday" Type="date" />
+          <Property Name="Specialization" Type="nvarchar" MaxLength="50" />
+          <Property Name="Year_of_assignment" Type="int" />
+        </EntityType>
+        <EntityType Name="Animals_Kornilova">
+          <Key>
+            <PropertyRef Name="ID_an" />
+          </Key>
+          <Property Name="ID_an" Type="int" Nullable="false" />
+          <Property Name="Name_an" Type="nvarchar" MaxLength="50" />
+          <Property Name="Squad_an" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ID_appl" />
+          </Key>
+          <Property Name="ID_appl" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" />
+          <Property Name="Num_sp" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Control_Kornilova">
+          <Key>
+            <PropertyRef Name="ID_c" />
+          </Key>
+          <Property Name="ID_c" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="View_C" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="ID_Countries" />
+          </Key>
+          <Property Name="ID_Countries" Type="int" Nullable="false" />
+          <Property Name="Name_Countries" Type="nvarchar" MaxLength="50" />
+          <Property Name="City_Countries" Type="nvarchar" MaxLength="50" />
+          <Property Name="Square" Type="int" />
+          <Property Name="Population" Type="int" />
+          <Property Name="Continent" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="COUNTRY_Kornilova">
+          <Key>
+            <PropertyRef Name="ID_coun" />
+          </Key>
+          <Property Name="ID_coun" Type="int" Nullable="false" />
+          <Property Name="Name_coun" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="City_coun" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Continent_coun" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Popul_coun" Type="int" />
+          <Property Name="Sq_coun" Type="int" />
+          <Property Name="View_ID_coun" Type="int" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Cipher" />
+          </Key>
+          <Property Name="Cipher" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Name_dep" Type="nvarchar" MaxLength="50" />
+          <Property Name="Abbreviation_f" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Discipline">
+          <Key>
+            <PropertyRef Name="ID_d" />
+          </Key>
+          <Property Name="ID_d" Type="int" Nullable="false" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Name_disc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cipher" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Num_emp" />
+          </Key>
+          <Property Name="Num_emp" Type="int" Nullable="false" />
+          <Property Name="Cipher" Type="nvarchar" MaxLength="5" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="50" />
+          <Property Name="Post" Type="nvarchar" MaxLength="50" />
+          <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Chief" Type="int" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Engineer">
+          <Key>
+            <PropertyRef Name="Num_emp" />
+          </Key>
+          <Property Name="Num_emp" Type="int" Nullable="false" />
+          <Property Name="Speciality" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="ID_ex" />
+          </Key>
+          <Property Name="ID_ex" Type="int" Nullable="false" />
+          <Property Name="Date_e" Type="date" />
+          <Property Name="ID_d" Type="int" />
+          <Property Name="Reg_num" Type="int" Nullable="false" />
+          <Property Name="Num_emp" Type="int" />
+          <Property Name="Сlassroom" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grade" Type="int" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="Abbreviation_f" />
+          </Key>
+          <Property Name="Abbreviation_f" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Name_f" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Flowers_Kornilova">
+          <Key>
+            <PropertyRef Name="ID_fl" />
+          </Key>
+          <Property Name="ID_fl" Type="int" Nullable="false" />
+          <Property Name="Name_fl" Type="nvarchar" MaxLength="50" />
+          <Property Name="Class_fl" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Head">
+          <Key>
+            <PropertyRef Name="Num_emp" />
+          </Key>
+          <Property Name="Num_emp" Type="int" Nullable="false" />
+          <Property Name="Experience" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "YchebnPraktika_Kornilova320.dbo.HighSchoolStudents" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="HighSchoolStudents">
+          <Key>
+            <PropertyRef Name="ID_ss" />
+            <PropertyRef Name="Name_ss" />
+            <PropertyRef Name="Item_ss" />
+            <PropertyRef Name="School_ss" />
+          </Key>
+          <Property Name="ID_ss" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_ss" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Item_ss" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="School_ss" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mark_ss" Type="float" />
+        </EntityType>
+        <EntityType Name="SchoolStudents">
+          <Key>
+            <PropertyRef Name="ID_ss" />
+          </Key>
+          <Property Name="ID_ss" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_ss" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Item_ss" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="School_ss" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mark_ss" Type="float" />
+        </EntityType>
+        <EntityType Name="Speciality">
+          <Key>
+            <PropertyRef Name="Num_sp" />
+          </Key>
+          <Property Name="Num_sp" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name_sp" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cipher" Type="nvarchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Reg_num" />
+          </Key>
+          <Property Name="Reg_num" Type="int" Nullable="false" />
+          <Property Name="Num_sp" Type="nvarchar" MaxLength="50" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Num_emp" />
+          </Key>
+          <Property Name="Num_emp" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="Degree" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Application_Discipline">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="ID_d" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="Num_sp" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="Num_sp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Faculty">
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="Abbreviation_f" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="Abbreviation_f" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Discipline_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Cipher" />
+            </Principal>
+            <Dependent Role="Discipline">
+              <PropertyRef Name="Cipher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Cipher" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Cipher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engineer_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Engineer" Type="Self.Engineer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Num_emp" />
+            </Principal>
+            <Dependent Role="Engineer">
+              <PropertyRef Name="Num_emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Discipline">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="ID_d" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="ID_d" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Num_emp" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="Num_emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Reg_num" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="Reg_num" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Head_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Head" Type="Self.Head" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Num_emp" />
+            </Principal>
+            <Dependent Role="Head">
+              <PropertyRef Name="Num_emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speciality_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Cipher" />
+            </Principal>
+            <Dependent Role="Speciality">
+              <PropertyRef Name="Cipher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="Num_sp" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Num_sp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Num_emp" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="Num_emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_View_C">
+          <End Role="Control_Kornilova" Type="Self.Control_Kornilova" Multiplicity="0..1" />
+          <End Role="COUNTRY_Kornilova" Type="Self.COUNTRY_Kornilova" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Control_Kornilova">
+              <PropertyRef Name="ID_c" />
+            </Principal>
+            <Dependent Role="COUNTRY_Kornilova">
+              <PropertyRef Name="View_ID_coun" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище YchebnPraktika_Kornilova320ModelContainer">
+          <EntitySet Name="Academicians" EntityType="Self.Academicians" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Animals_Kornilova" EntityType="Self.Animals_Kornilova" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Control_Kornilova" EntityType="Self.Control_Kornilova" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COUNTRY_Kornilova" EntityType="Self.COUNTRY_Kornilova" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Discipline" EntityType="Self.Discipline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Engineer" EntityType="Self.Engineer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flowers_Kornilova" EntityType="Self.Flowers_Kornilova" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Head" EntityType="Self.Head" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchoolStudents" EntityType="Self.SchoolStudents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Speciality" EntityType="Self.Speciality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HighSchoolStudents" EntityType="Self.HighSchoolStudents" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [HighSchoolStudents].[ID_ss] AS [ID_ss], 
+    [HighSchoolStudents].[Name_ss] AS [Name_ss], 
+    [HighSchoolStudents].[Item_ss] AS [Item_ss], 
+    [HighSchoolStudents].[School_ss] AS [School_ss], 
+    [HighSchoolStudents].[Mark_ss] AS [Mark_ss]
+    FROM [dbo].[HighSchoolStudents] AS [HighSchoolStudents]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Application_Discipline" Association="Self.FK_Application_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Speciality" Association="Self.FK_Application_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Faculty" Association="Self.FK_Department_Faculty">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Discipline_Department" Association="Self.FK_Discipline_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Discipline" EntitySet="Discipline" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engineer_Employee" Association="Self.FK_Engineer_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Engineer" EntitySet="Engineer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Discipline" Association="Self.FK_Exam_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Employee" Association="Self.FK_Exam_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Student" Association="Self.FK_Exam_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Head_Employee" Association="Self.FK_Head_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Head" EntitySet="Head" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speciality_Department" Association="Self.FK_Speciality_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Speciality" EntitySet="Speciality" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Speciality" Association="Self.FK_Student_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_Employee" Association="Self.FK_Teacher_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_View_C" Association="Self.FK_View_C">
+            <End Role="Control_Kornilova" EntitySet="Control_Kornilova" />
+            <End Role="COUNTRY_Kornilova" EntitySet="COUNTRY_Kornilova" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YchebnPraktika_Kornilova320Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Academicians">
+          <Key>
+            <PropertyRef Name="ID_academicians" />
+          </Key>
+          <Property Name="ID_academicians" Type="Int32" Nullable="false" />
+          <Property Name="FIO" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <Property Name="Specialization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Year_of_assignment" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Animals_Kornilova">
+          <Key>
+            <PropertyRef Name="ID_an" />
+          </Key>
+          <Property Name="ID_an" Type="Int32" Nullable="false" />
+          <Property Name="Name_an" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Squad_an" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ID_appl" />
+          </Key>
+          <Property Name="ID_appl" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="Num_sp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_Application_Discipline" FromRole="Application" ToRole="Discipline" />
+          <NavigationProperty Name="Speciality" Relationship="Self.FK_Application_Speciality" FromRole="Application" ToRole="Speciality" />
+        </EntityType>
+        <EntityType Name="Control_Kornilova">
+          <Key>
+            <PropertyRef Name="ID_c" />
+          </Key>
+          <Property Name="ID_c" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="View_C" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="COUNTRY_Kornilova" Relationship="Self.FK_View_C" FromRole="Control_Kornilova" ToRole="COUNTRY_Kornilova" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="ID_Countries" />
+          </Key>
+          <Property Name="ID_Countries" Type="Int32" Nullable="false" />
+          <Property Name="Name_Countries" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City_Countries" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Square" Type="Int32" />
+          <Property Name="Population" Type="Int32" />
+          <Property Name="Continent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="COUNTRY_Kornilova">
+          <Key>
+            <PropertyRef Name="ID_coun" />
+          </Key>
+          <Property Name="ID_coun" Type="Int32" Nullable="false" />
+          <Property Name="Name_coun" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City_coun" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Continent_coun" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Popul_coun" Type="Int32" />
+          <Property Name="Sq_coun" Type="Int32" />
+          <Property Name="View_ID_coun" Type="Int32" />
+          <NavigationProperty Name="Control_Kornilova" Relationship="Self.FK_View_C" FromRole="COUNTRY_Kornilova" ToRole="Control_Kornilova" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Cipher" />
+          </Key>
+          <Property Name="Cipher" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name_dep" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Abbreviation_f" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Faculty" Relationship="Self.FK_Department_Faculty" FromRole="Department" ToRole="Faculty" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_Discipline_Department" FromRole="Department" ToRole="Discipline" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Department" FromRole="Department" ToRole="Employee" />
+          <NavigationProperty Name="Speciality" Relationship="Self.FK_Speciality_Department" FromRole="Department" ToRole="Speciality" />
+        </EntityType>
+        <EntityType Name="Discipline">
+          <Key>
+            <PropertyRef Name="ID_d" />
+          </Key>
+          <Property Name="ID_d" Type="Int32" Nullable="false" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Name_disc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cipher" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Discipline" FromRole="Discipline" ToRole="Application" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Discipline_Department" FromRole="Discipline" ToRole="Department" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Discipline" FromRole="Discipline" ToRole="Exam" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Num_emp" />
+          </Key>
+          <Property Name="Num_emp" Type="Int32" Nullable="false" />
+          <Property Name="Cipher" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Chief" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Employee_Department" FromRole="Employee" ToRole="Department" />
+          <NavigationProperty Name="Engineer" Relationship="Self.FK_Engineer_Employee" FromRole="Employee" ToRole="Engineer" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Employee" FromRole="Employee" ToRole="Exam" />
+          <NavigationProperty Name="Head" Relationship="Self.FK_Head_Employee" FromRole="Employee" ToRole="Head" />
+          <NavigationProperty Name="Teacher" Relationship="Self.FK_Teacher_Employee" FromRole="Employee" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="Engineer">
+          <Key>
+            <PropertyRef Name="Num_emp" />
+          </Key>
+          <Property Name="Num_emp" Type="Int32" Nullable="false" />
+          <Property Name="Speciality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Engineer_Employee" FromRole="Engineer" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="ID_ex" />
+          </Key>
+          <Property Name="ID_ex" Type="Int32" Nullable="false" />
+          <Property Name="Date_e" Type="DateTime" Precision="0" />
+          <Property Name="ID_d" Type="Int32" />
+          <Property Name="Reg_num" Type="Int32" Nullable="false" />
+          <Property Name="Num_emp" Type="Int32" />
+          <Property Name="Сlassroom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="Int32" />
+          <NavigationProperty Name="Discipline" Relationship="Self.FK_Exam_Discipline" FromRole="Exam" ToRole="Discipline" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Exam_Employee" FromRole="Exam" ToRole="Employee" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Exam_Student" FromRole="Exam" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="Abbreviation_f" />
+          </Key>
+          <Property Name="Abbreviation_f" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name_f" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Department_Faculty" FromRole="Faculty" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Flowers_Kornilova">
+          <Key>
+            <PropertyRef Name="ID_fl" />
+          </Key>
+          <Property Name="ID_fl" Type="Int32" Nullable="false" />
+          <Property Name="Name_fl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Class_fl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Head">
+          <Key>
+            <PropertyRef Name="Num_emp" />
+          </Key>
+          <Property Name="Num_emp" Type="Int32" Nullable="false" />
+          <Property Name="Experience" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Head_Employee" FromRole="Head" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="SchoolStudents">
+          <Key>
+            <PropertyRef Name="ID_ss" />
+          </Key>
+          <Property Name="ID_ss" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_ss" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Item_ss" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="School_ss" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mark_ss" Type="Double" />
+        </EntityType>
+        <EntityType Name="Speciality">
+          <Key>
+            <PropertyRef Name="Num_sp" />
+          </Key>
+          <Property Name="Num_sp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name_sp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cipher" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Application" Relationship="Self.FK_Application_Speciality" FromRole="Speciality" ToRole="Application" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Speciality_Department" FromRole="Speciality" ToRole="Department" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Speciality" FromRole="Speciality" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Reg_num" />
+          </Key>
+          <Property Name="Reg_num" Type="Int32" Nullable="false" />
+          <Property Name="Num_sp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Student" FromRole="Student" ToRole="Exam" />
+          <NavigationProperty Name="Speciality" Relationship="Self.FK_Student_Speciality" FromRole="Student" ToRole="Speciality" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Num_emp" />
+          </Key>
+          <Property Name="Num_emp" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Teacher_Employee" FromRole="Teacher" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="HighSchoolStudents">
+          <Key>
+            <PropertyRef Name="ID_ss" />
+            <PropertyRef Name="Name_ss" />
+            <PropertyRef Name="Item_ss" />
+            <PropertyRef Name="School_ss" />
+          </Key>
+          <Property Name="ID_ss" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_ss" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Item_ss" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="School_ss" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mark_ss" Type="Double" />
+        </EntityType>
+        <Association Name="FK_Application_Discipline">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="ID_d" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
+          <End Role="Application" Type="Self.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="Num_sp" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="Num_sp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_View_C">
+          <End Role="Control_Kornilova" Type="Self.Control_Kornilova" Multiplicity="0..1" />
+          <End Role="COUNTRY_Kornilova" Type="Self.COUNTRY_Kornilova" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Control_Kornilova">
+              <PropertyRef Name="ID_c" />
+            </Principal>
+            <Dependent Role="COUNTRY_Kornilova">
+              <PropertyRef Name="View_ID_coun" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Department_Faculty">
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+          <End Role="Department" Type="Self.Department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="Abbreviation_f" />
+            </Principal>
+            <Dependent Role="Department">
+              <PropertyRef Name="Abbreviation_f" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Discipline_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Cipher" />
+            </Principal>
+            <Dependent Role="Discipline">
+              <PropertyRef Name="Cipher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Cipher" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Cipher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speciality_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Cipher" />
+            </Principal>
+            <Dependent Role="Speciality">
+              <PropertyRef Name="Cipher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Discipline">
+          <End Role="Discipline" Type="Self.Discipline" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Discipline">
+              <PropertyRef Name="ID_d" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="ID_d" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engineer_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Engineer" Type="Self.Engineer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Num_emp" />
+            </Principal>
+            <Dependent Role="Engineer">
+              <PropertyRef Name="Num_emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Num_emp" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="Num_emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Head_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Head" Type="Self.Head" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Num_emp" />
+            </Principal>
+            <Dependent Role="Head">
+              <PropertyRef Name="Num_emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Num_emp" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="Num_emp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Reg_num" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="Reg_num" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="Num_sp" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Num_sp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="YchebnPraktika_Kornilova320Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Academicians" EntityType="Self.Academicians" />
+          <EntitySet Name="Animals_Kornilova" EntityType="Self.Animals_Kornilova" />
+          <EntitySet Name="Application" EntityType="Self.Application" />
+          <EntitySet Name="Control_Kornilova" EntityType="Self.Control_Kornilova" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" />
+          <EntitySet Name="COUNTRY_Kornilova" EntityType="Self.COUNTRY_Kornilova" />
+          <EntitySet Name="Department" EntityType="Self.Department" />
+          <EntitySet Name="Discipline" EntityType="Self.Discipline" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="Engineer" EntityType="Self.Engineer" />
+          <EntitySet Name="Exam" EntityType="Self.Exam" />
+          <EntitySet Name="Faculty" EntityType="Self.Faculty" />
+          <EntitySet Name="Flowers_Kornilova" EntityType="Self.Flowers_Kornilova" />
+          <EntitySet Name="Head" EntityType="Self.Head" />
+          <EntitySet Name="SchoolStudents" EntityType="Self.SchoolStudents" />
+          <EntitySet Name="Speciality" EntityType="Self.Speciality" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" />
+          <EntitySet Name="HighSchoolStudents" EntityType="Self.HighSchoolStudents" />
+          <AssociationSet Name="FK_Application_Discipline" Association="Self.FK_Application_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_Speciality" Association="Self.FK_Application_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_View_C" Association="Self.FK_View_C">
+            <End Role="Control_Kornilova" EntitySet="Control_Kornilova" />
+            <End Role="COUNTRY_Kornilova" EntitySet="COUNTRY_Kornilova" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Department_Faculty" Association="Self.FK_Department_Faculty">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Department" EntitySet="Department" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Discipline_Department" Association="Self.FK_Discipline_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Discipline" EntitySet="Discipline" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speciality_Department" Association="Self.FK_Speciality_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Speciality" EntitySet="Speciality" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Discipline" Association="Self.FK_Exam_Discipline">
+            <End Role="Discipline" EntitySet="Discipline" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engineer_Employee" Association="Self.FK_Engineer_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Engineer" EntitySet="Engineer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Employee" Association="Self.FK_Exam_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Head_Employee" Association="Self.FK_Head_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Head" EntitySet="Head" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_Employee" Association="Self.FK_Teacher_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Student" Association="Self.FK_Exam_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Speciality" Association="Self.FK_Student_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище YchebnPraktika_Kornilova320ModelContainer" CdmEntityContainer="YchebnPraktika_Kornilova320Entities">
+          <EntitySetMapping Name="Academicians">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Academicians">
+              <MappingFragment StoreEntitySet="Academicians">
+                <ScalarProperty Name="ID_academicians" ColumnName="ID_academicians" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+                <ScalarProperty Name="Year_of_assignment" ColumnName="Year_of_assignment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Animals_Kornilova">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Animals_Kornilova">
+              <MappingFragment StoreEntitySet="Animals_Kornilova">
+                <ScalarProperty Name="ID_an" ColumnName="ID_an" />
+                <ScalarProperty Name="Name_an" ColumnName="Name_an" />
+                <ScalarProperty Name="Squad_an" ColumnName="Squad_an" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Application">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="ID_appl" ColumnName="ID_appl" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Num_sp" ColumnName="Num_sp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Control_Kornilova">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Control_Kornilova">
+              <MappingFragment StoreEntitySet="Control_Kornilova">
+                <ScalarProperty Name="ID_c" ColumnName="ID_c" />
+                <ScalarProperty Name="View_C" ColumnName="View_C" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Countries">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="ID_Countries" ColumnName="ID_Countries" />
+                <ScalarProperty Name="Name_Countries" ColumnName="Name_Countries" />
+                <ScalarProperty Name="City_Countries" ColumnName="City_Countries" />
+                <ScalarProperty Name="Square" ColumnName="Square" />
+                <ScalarProperty Name="Population" ColumnName="Population" />
+                <ScalarProperty Name="Continent" ColumnName="Continent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COUNTRY_Kornilova">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.COUNTRY_Kornilova">
+              <MappingFragment StoreEntitySet="COUNTRY_Kornilova">
+                <ScalarProperty Name="ID_coun" ColumnName="ID_coun" />
+                <ScalarProperty Name="Name_coun" ColumnName="Name_coun" />
+                <ScalarProperty Name="City_coun" ColumnName="City_coun" />
+                <ScalarProperty Name="Continent_coun" ColumnName="Continent_coun" />
+                <ScalarProperty Name="Popul_coun" ColumnName="Popul_coun" />
+                <ScalarProperty Name="Sq_coun" ColumnName="Sq_coun" />
+                <ScalarProperty Name="View_ID_coun" ColumnName="View_ID_coun" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Department">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Cipher" ColumnName="Cipher" />
+                <ScalarProperty Name="Name_dep" ColumnName="Name_dep" />
+                <ScalarProperty Name="Abbreviation_f" ColumnName="Abbreviation_f" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Discipline">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Discipline">
+              <MappingFragment StoreEntitySet="Discipline">
+                <ScalarProperty Name="ID_d" ColumnName="ID_d" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Name_disc" ColumnName="Name_disc" />
+                <ScalarProperty Name="Cipher" ColumnName="Cipher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Num_emp" ColumnName="Num_emp" />
+                <ScalarProperty Name="Cipher" ColumnName="Cipher" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="Chief" ColumnName="Chief" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Engineer">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Engineer">
+              <MappingFragment StoreEntitySet="Engineer">
+                <ScalarProperty Name="Num_emp" ColumnName="Num_emp" />
+                <ScalarProperty Name="Speciality" ColumnName="Speciality" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exam">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Exam">
+              <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="ID_ex" ColumnName="ID_ex" />
+                <ScalarProperty Name="Date_e" ColumnName="Date_e" />
+                <ScalarProperty Name="ID_d" ColumnName="ID_d" />
+                <ScalarProperty Name="Reg_num" ColumnName="Reg_num" />
+                <ScalarProperty Name="Num_emp" ColumnName="Num_emp" />
+                <ScalarProperty Name="Сlassroom" ColumnName="Сlassroom" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculty">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Faculty">
+              <MappingFragment StoreEntitySet="Faculty">
+                <ScalarProperty Name="Abbreviation_f" ColumnName="Abbreviation_f" />
+                <ScalarProperty Name="Name_f" ColumnName="Name_f" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flowers_Kornilova">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Flowers_Kornilova">
+              <MappingFragment StoreEntitySet="Flowers_Kornilova">
+                <ScalarProperty Name="ID_fl" ColumnName="ID_fl" />
+                <ScalarProperty Name="Name_fl" ColumnName="Name_fl" />
+                <ScalarProperty Name="Class_fl" ColumnName="Class_fl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Head">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Head">
+              <MappingFragment StoreEntitySet="Head">
+                <ScalarProperty Name="Num_emp" ColumnName="Num_emp" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchoolStudents">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.SchoolStudents">
+              <MappingFragment StoreEntitySet="SchoolStudents">
+                <ScalarProperty Name="ID_ss" ColumnName="ID_ss" />
+                <ScalarProperty Name="Name_ss" ColumnName="Name_ss" />
+                <ScalarProperty Name="Item_ss" ColumnName="Item_ss" />
+                <ScalarProperty Name="School_ss" ColumnName="School_ss" />
+                <ScalarProperty Name="Mark_ss" ColumnName="Mark_ss" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Speciality">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Speciality">
+              <MappingFragment StoreEntitySet="Speciality">
+                <ScalarProperty Name="Num_sp" ColumnName="Num_sp" />
+                <ScalarProperty Name="Name_sp" ColumnName="Name_sp" />
+                <ScalarProperty Name="Cipher" ColumnName="Cipher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Reg_num" ColumnName="Reg_num" />
+                <ScalarProperty Name="Num_sp" ColumnName="Num_sp" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teacher">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="Num_emp" ColumnName="Num_emp" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HighSchoolStudents">
+            <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.HighSchoolStudents">
+              <MappingFragment StoreEntitySet="HighSchoolStudents">
+                <ScalarProperty Name="ID_ss" ColumnName="ID_ss" />
+                <ScalarProperty Name="Name_ss" ColumnName="Name_ss" />
+                <ScalarProperty Name="Item_ss" ColumnName="Item_ss" />
+                <ScalarProperty Name="School_ss" ColumnName="School_ss" />
+                <ScalarProperty Name="Mark_ss" ColumnName="Mark_ss" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

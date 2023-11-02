@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using YchPr_KornilovaVaravra320.DB;
 
 namespace YchPr_KornilovaVaravra320.Pages
 {
@@ -20,9 +21,21 @@ namespace YchPr_KornilovaVaravra320.Pages
     /// </summary>
     public partial class AuthorizationPage : Page
     {
+        public static List<Employee> employee { get; set; }
         public AuthorizationPage()
         {
             InitializeComponent();
+        }
+
+        private void discipl_btn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.DisciplinesPages());
+        }
+
+        private void login_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            //string login = Convert.ToString();
+            //string password;
         }
     }
 }
