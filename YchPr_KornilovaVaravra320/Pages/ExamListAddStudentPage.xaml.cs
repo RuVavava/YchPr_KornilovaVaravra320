@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using YchPr_KornilovaVaravra320.DB;
+using YchPr_KornilovaVaravra320.Windows;
+
+namespace YchPr_KornilovaVaravra320.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для ExamListAddStudentPage.xaml
+    /// </summary>
+    public partial class ExamListAddStudentPage : Page
+    {
+        public static List<Exam> exam { get; set; }
+        public static List<Discipline> disciplines { get; set; }
+        public static List<Student> students { get; set; }
+        Exam contextExam;
+        private Window currentDialog = null;
+        public ExamListAddStudentPage(Exam exam)
+        {
+            InitializeComponent();
+            contextExam = exam;
+            oobzor_student_list.ItemsSource = DB.DbConnection.YchebnPraktika_Kornilova320Entities.Exam.
+                Where(i => i.Date_e == contextExam.Date_e && i.ID_d == contextExam.ID_d).ToList();
+            TB_DateE.Text = Convert.ToString(contextExam.Date_e);
+            TB_NameE.Text = Convert.ToString(contextExam.Discipline.Name_disc);
+
+            this.DataContext = this;
+        }
+
+        private void back_authpage_btn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.ExamlistPages());
+        }
+
+        private void oobzor_student_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Диалоговое окно с удалением студента
+            DeliteStudentWindow deliteStudentWindow = new DeliteStudentWindow();
+            currentDialog = deliteStudentWindow;
+            deliteStudentWindow.ShowDialog();
+            currentDialog = null;
+        }
+    }
+}

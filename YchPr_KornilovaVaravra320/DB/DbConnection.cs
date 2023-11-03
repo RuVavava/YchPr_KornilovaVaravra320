@@ -9,5 +9,6 @@ namespace YchPr_KornilovaVaravra320.DB
     internal class DbConnection
     {
         public static YchebnPraktika_Kornilova320Entities YchebnPraktika_Kornilova320Entities = new YchebnPraktika_Kornilova320Entities();
+        public static Employee loginpassUser;
     }
 }

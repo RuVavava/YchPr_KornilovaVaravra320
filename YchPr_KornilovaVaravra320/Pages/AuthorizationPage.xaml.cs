@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,8 +35,17 @@ namespace YchPr_KornilovaVaravra320.Pages
 
         private void login_Btn_Click(object sender, RoutedEventArgs e)
         {
-            //string login = Convert.ToString();
-            //string password;
+            int login = Convert.ToInt32(login_Tb.Text.Trim());
+            string password = Convert.ToString(password_Tb.Password.Trim());
+
+            var employee = DbConnection.YchebnPraktika_Kornilova320Entities.Employee.ToList();
+            var curretempl = employee.FirstOrDefault(i => i.Num_emp == login && i.Password == password);
+            DbConnection.loginpassUser = curretempl;
+            
+            if (curretempl != null && curretempl.Post == "преподаватель")
+                NavigationService.Navigate(new ExamlistPages());
+            else
+                MessageBox.Show("Введенные данные некорректны!");
         }
     }
 }
