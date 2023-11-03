@@ -10,15 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using YchPr_KornilovaVaravra320.DB;
+using YchPr_KornilovaVaravra320.Pages;
 
 namespace YchPr_KornilovaVaravra320.Windows
 {
     /// <summary>
     /// Логика взаимодействия для DeliteStudentWindow.xaml
     /// </summary>
+    /// 
     public partial class DeliteStudentWindow : Window
     {
+        public static List<Exam> exam { get; set; }
+        public static List<Discipline> disciplines { get; set; }
+        public static List<Student> students { get; set; }
+        Exam contextExam;
+        Student student;
         public DeliteStudentWindow()
         {
             InitializeComponent();
@@ -26,10 +35,15 @@ namespace YchPr_KornilovaVaravra320.Windows
 
         private void net_btn_Click(object sender, RoutedEventArgs e)
         {
-            DeliteStudentWindow deliteStudentWindow = new DeliteStudentWindow();
             this.Close();
+        }
 
-
+        private void da_btn_Click(object sender, RoutedEventArgs e)
+        {
+            //var st = DbConnection.YchebnPraktika_Kornilova320Entities.
+            Exam exam = DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Where(i => i.Reg_num  == student.Reg_num).FirstOrDefault();
+            DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Remove(exam);
+            this.Close();
         }
     }
 }

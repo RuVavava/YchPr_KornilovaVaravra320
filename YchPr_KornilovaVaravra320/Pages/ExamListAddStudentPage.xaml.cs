@@ -26,6 +26,7 @@ namespace YchPr_KornilovaVaravra320.Pages
         public static List<Discipline> disciplines { get; set; }
         public static List<Student> students { get; set; }
         Exam contextExam;
+        
         private Window currentDialog = null;
         public ExamListAddStudentPage(Exam exam)
         {
@@ -37,6 +38,8 @@ namespace YchPr_KornilovaVaravra320.Pages
             TB_NameE.Text = Convert.ToString(contextExam.Discipline.Name_disc);
 
             this.DataContext = this;
+
+            Refresh();
         }
 
         private void back_authpage_btn_Click(object sender, RoutedEventArgs e)
@@ -46,11 +49,17 @@ namespace YchPr_KornilovaVaravra320.Pages
 
         private void oobzor_student_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Диалоговое окно с удалением студента
+            //Диалоговое окно с удалением(отмена/ок) студента
             DeliteStudentWindow deliteStudentWindow = new DeliteStudentWindow();
             currentDialog = deliteStudentWindow;
             deliteStudentWindow.ShowDialog();
             currentDialog = null;
+        }
+
+        private void Refresh()
+        {
+            oobzor_student_list.ItemsSource = DB.DbConnection.YchebnPraktika_Kornilova320Entities.Exam.
+                Where(i => i.Date_e == contextExam.Date_e && i.ID_d == contextExam.ID_d).ToList();
         }
     }
 }

@@ -111,7 +111,7 @@
                 Height="30"
                 Width="100"
                 FontFamily="Courier New"
-                FontWeight="DemiBold" Background="#FF84C8F3">
+                FontWeight="DemiBold" Background="#FF84C8F3" Click="da_btn_Click">
         </Button>
     </Grid>
 </Window>
