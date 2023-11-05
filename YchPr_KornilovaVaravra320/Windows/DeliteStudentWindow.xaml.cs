@@ -26,8 +26,6 @@ namespace YchPr_KornilovaVaravra320.Windows
         public static List<Exam> exam { get; set; }
         public static List<Discipline> disciplines { get; set; }
         public static List<Student> students { get; set; }
-        Exam contextExam;
-        Student student;
         public DeliteStudentWindow()
         {
             InitializeComponent();
@@ -40,10 +38,11 @@ namespace YchPr_KornilovaVaravra320.Windows
 
         private void da_btn_Click(object sender, RoutedEventArgs e)
         {
-            //var st = DbConnection.YchebnPraktika_Kornilova320Entities.
-            Exam exam = DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Where(i => i.Reg_num  == student.Reg_num).FirstOrDefault();
-            DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Remove(exam);
-            this.Close();
+            ////var st = DbConnection.YchebnPraktika_Kornilova320Entities.
+            //Exam exam = DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Where(i => i.ID_d).FirstOrDefault();
+            //DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Remove(exam);
+            //DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
+            //this.Close();
         }
     }
 }

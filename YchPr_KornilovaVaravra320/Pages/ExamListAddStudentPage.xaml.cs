@@ -54,12 +54,22 @@ namespace YchPr_KornilovaVaravra320.Pages
             currentDialog = deliteStudentWindow;
             deliteStudentWindow.ShowDialog();
             currentDialog = null;
+
         }
 
         private void Refresh()
         {
             oobzor_student_list.ItemsSource = DB.DbConnection.YchebnPraktika_Kornilova320Entities.Exam.
                 Where(i => i.Date_e == contextExam.Date_e && i.ID_d == contextExam.ID_d).ToList();
+        }
+
+        private void delite_btn_Click(object sender, RoutedEventArgs e)
+        {
+            ////var st = DbConnection.YchebnPraktika_Kornilova320Entities.
+            Exam exam = DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Where(i => i.ID_d == contextExam.ID_d).FirstOrDefault();
+            DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Remove(exam);
+            DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
+            Refresh();
         }
     }
 }
