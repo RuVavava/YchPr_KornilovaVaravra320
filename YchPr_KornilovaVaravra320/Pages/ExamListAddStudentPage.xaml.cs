@@ -14,7 +14,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using YchPr_KornilovaVaravra320.DB;
-using YchPr_KornilovaVaravra320.Windows;
 
 namespace YchPr_KornilovaVaravra320.Pages
 {
@@ -28,7 +27,6 @@ namespace YchPr_KornilovaVaravra320.Pages
         public static List<Discipline> disciplines { get; set; }
         Exam contextExam;
         
-        private Window currentDialog = null;
         public ExamListAddStudentPage(Exam exam)
         {
             InitializeComponent();
@@ -94,6 +92,7 @@ namespace YchPr_KornilovaVaravra320.Pages
                 DB.DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Add(exams);
                 DB.DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
                 Refresh();
+                InitializeDataInPage();
             }
         }
     }

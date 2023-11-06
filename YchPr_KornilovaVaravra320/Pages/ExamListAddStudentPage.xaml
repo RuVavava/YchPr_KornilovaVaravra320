@@ -123,7 +123,7 @@
                   Grid.Column="0"
                   Grid.ColumnSpan="10"
                   Grid.Row="0"
-                  Grid.RowSpan="7" SelectionChanged="oobzor_student_list_SelectionChanged">
+                  Grid.RowSpan="7">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
