@@ -106,20 +106,7 @@
                 HorizontalAlignment="Center" Click="back_authpage_btn_Click" Background="#FF84C8F3">
         </Button>
 
-        <Button x:Name="delite_btn"
-                Content="del "
-                FontSize="15"
-                Grid.Column="3"
-                Grid.ColumnSpan="1"
-                Grid.Row="0"
-                Grid.RowSpan="1"
-                Height="30"
-                Width="40"
-                FontFamily="Courier New"
-                FontWeight="DemiBold"
-                HorizontalContentAlignment="Left"
-                HorizontalAlignment="Center" Background="#FF84C8F3" Click="delite_btn_Click">
-        </Button>
+
 
         <TextBlock x:Name="TB_DateE"
                    Grid.Column="6"
@@ -132,10 +119,10 @@
                    Grid.Row="0"
         />
 
-        <ListView Width="700" Height="300" x:Name="oobzor_student_list" 
+        <ListView Width="700" Height="200" x:Name="oobzor_student_list" 
                   Grid.Column="0"
                   Grid.ColumnSpan="10"
-                  Grid.Row="1"
+                  Grid.Row="0"
                   Grid.RowSpan="7" SelectionChanged="oobzor_student_list_SelectionChanged">
             <ListView.View>
                 <GridView>
@@ -147,5 +134,66 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <StackPanel Grid.Column=" 1"
+                    Grid.ColumnSpan="8"
+                    Grid.Row="6"
+                    Height="100">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox x:Name="Cb_students" ItemsSource="{Binding students}"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="2"
+                          Width="200">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding FIO}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <ComboBox x:Name ="Cb_Mark"
+                          Grid.Column="2"
+                          Grid.ColumnSpan="1"
+                          Width="100">
+                    <TextBlock Text="5"/>
+                    <TextBlock Text="4"/>
+                    <TextBlock Text="3"/>
+                    <TextBlock Text="2"/>
+                </ComboBox>
+
+                <Button   x:Name="Btn_AddStudent"
+                    Content="Добавить"
+                          Grid.Column="3"
+                          Grid.ColumnSpan="1"
+                          Width="100"
+                          Background="#FF84C8F3" 
+                          FontFamily="Courier New"
+                          FontWeight="DemiBold"
+                          FontSize="15"
+                          HorizontalContentAlignment="Center" Click="Btn_AddStudent_Click">
+                </Button>
+                
+                <Button x:Name="delite_btn"
+                        Content="Удалить"
+                        FontSize="15"
+                        Grid.Column="4"
+                        Grid.ColumnSpan="1"
+                        Width="100"
+                        FontFamily="Courier New"
+                        FontWeight="DemiBold"
+                        HorizontalContentAlignment="Center"
+                        HorizontalAlignment="Center" Background="#FFE24242" Click="delite_btn_Click">
+                </Button>
+            </Grid>
+        </StackPanel>
+        
     </Grid>
 </Page>

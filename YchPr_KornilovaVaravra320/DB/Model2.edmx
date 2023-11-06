@@ -101,7 +101,7 @@
           <Key>
             <PropertyRef Name="ID_ex" />
           </Key>
-          <Property Name="ID_ex" Type="int" Nullable="false" />
+          <Property Name="ID_ex" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date_e" Type="date" />
           <Property Name="ID_d" Type="int" />
           <Property Name="Reg_num" Type="int" Nullable="false" />
@@ -358,6 +358,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="SelectProcedure_zadan4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="columns" Type="varchar(max)" Mode="In" />
+          <Parameter Name="tableName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SelectProcedure_zadan5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Columns" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="TableName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="CheckColumn" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ComparisonOperator" Type="nvarchar" Mode="In" />
+          <Parameter Name="ComparisonValue" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ZADANIE1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ZADANIE1_2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar">
+          <Parameter Name="City" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="Хранилище YchebnPraktika_Kornilova320ModelContainer">
           <EntitySet Name="Academicians" EntityType="Self.Academicians" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Animals_Kornilova" EntityType="Self.Animals_Kornilova" Schema="dbo" store:Type="Tables" />
@@ -562,7 +610,7 @@
           <Key>
             <PropertyRef Name="ID_ex" />
           </Key>
-          <Property Name="ID_ex" Type="Int32" Nullable="false" />
+          <Property Name="ID_ex" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date_e" Type="DateTime" Precision="0" />
           <Property Name="ID_d" Type="Int32" />
           <Property Name="Reg_num" Type="Int32" Nullable="false" />
@@ -828,7 +876,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="YchebnPraktika_Kornilova320Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="YchebnPraktika_Kornilova320Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Academicians" EntityType="Self.Academicians" />
           <EntitySet Name="Animals_Kornilova" EntityType="Self.Animals_Kornilova" />
           <EntitySet Name="Application" EntityType="Self.Application" />
@@ -905,13 +953,65 @@
             <End Role="Speciality" EntitySet="Speciality" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
+          <FunctionImport Name="SelectProcedure_zadan4">
+            <Parameter Name="columns" Mode="In" Type="String" />
+            <Parameter Name="tableName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectProcedure_zadan5">
+            <Parameter Name="Columns" Mode="In" Type="String" />
+            <Parameter Name="TableName" Mode="In" Type="String" />
+            <Parameter Name="CheckColumn" Mode="In" Type="String" />
+            <Parameter Name="ComparisonOperator" Mode="In" Type="String" />
+            <Parameter Name="ComparisonValue" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(YchebnPraktika_Kornilova320Model.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(YchebnPraktika_Kornilova320Model.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище YchebnPraktika_Kornilova320ModelContainer" CdmEntityContainer="YchebnPraktika_Kornilova320Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище YchebnPraktika_Kornilova320ModelContainer" CdmEntityContainer="YchebnPraktika_Kornilova320Entities1">
           <EntitySetMapping Name="Academicians">
             <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Academicians">
               <MappingFragment StoreEntitySet="Academicians">
@@ -1112,6 +1212,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SelectProcedure_zadan4" FunctionName="Хранилище YchebnPraktika_Kornilova320Model.SelectProcedure_zadan4" />
+          <FunctionImportMapping FunctionImportName="SelectProcedure_zadan5" FunctionName="Хранилище YchebnPraktika_Kornilova320Model.SelectProcedure_zadan5" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище YchebnPraktika_Kornilova320Model.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище YchebnPraktika_Kornilova320Model.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище YchebnPraktika_Kornilova320Model.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище YchebnPraktika_Kornilova320Model.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YchebnPraktika_Kornilova320Model.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище YchebnPraktika_Kornilova320Model.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YchebnPraktika_Kornilova320Model.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище YchebnPraktika_Kornilova320Model.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище YchebnPraktika_Kornilova320Model.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,8 @@ namespace YchPr_KornilovaVaravra320.Pages
     public partial class ExamListAddStudentPage : Page
     {
         public static List<Exam> exam { get; set; }
-        public static List<Discipline> disciplines { get; set; }
         public static List<Student> students { get; set; }
+        public static List<Discipline> disciplines { get; set; }
         Exam contextExam;
         
         private Window currentDialog = null;
@@ -36,25 +37,25 @@ namespace YchPr_KornilovaVaravra320.Pages
                 Where(i => i.Date_e == contextExam.Date_e && i.ID_d == contextExam.ID_d).ToList();
             TB_DateE.Text = Convert.ToString(contextExam.Date_e);
             TB_NameE.Text = Convert.ToString(contextExam.Discipline.Name_disc);
-
+            InitializeDataInPage();
+            students = new List<Student>
+                (DB.DbConnection.YchebnPraktika_Kornilova320Entities.Student.ToList());
             this.DataContext = this;
-
-            Refresh();
         }
+
+        private void InitializeDataInPage()
+        {
+            Cb_students.ItemsSource = DB.DbConnection.YchebnPraktika_Kornilova320Entities.Student.ToList();
+            students = new List<Student>
+                (DB.DbConnection.YchebnPraktika_Kornilova320Entities.Student.ToList());
+            exam = new List<Exam>(DB.DbConnection.YchebnPraktika_Kornilova320Entities.Exam.
+                Where(i => i.Date_e == contextExam.Date_e && i.ID_d == contextExam.ID_d).ToList());
+        }
+
 
         private void back_authpage_btn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Pages.ExamlistPages());
-        }
-
-        private void oobzor_student_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Диалоговое окно с удалением(отмена/ок) студента
-            DeliteStudentWindow deliteStudentWindow = new DeliteStudentWindow();
-            currentDialog = deliteStudentWindow;
-            deliteStudentWindow.ShowDialog();
-            currentDialog = null;
-
         }
 
         private void Refresh()
@@ -63,13 +64,37 @@ namespace YchPr_KornilovaVaravra320.Pages
                 Where(i => i.Date_e == contextExam.Date_e && i.ID_d == contextExam.ID_d).ToList();
         }
 
-        private void delite_btn_Click(object sender, RoutedEventArgs e)
+        private void delite_btn_Click(object sender, RoutedEventArgs e) //Кнопка удаления студента
         {
-            ////var st = DbConnection.YchebnPraktika_Kornilova320Entities.
-            Exam exam = DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Where(i => i.ID_d == contextExam.ID_d).FirstOrDefault();
-            DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Remove(exam);
-            DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
-            Refresh();
+            if (oobzor_student_list.SelectedItem is Exam exam)
+            {
+                DB.DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Remove(exam);
+                DB.DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
+                Refresh();
+            }
+        }
+
+        private void Btn_AddStudent_Click(object sender, RoutedEventArgs e)
+        {
+            string grate = "2";
+            var TBmark = Cb_Mark.SelectedValue as TextBlock;
+            if (TBmark != null)
+                grate = TBmark.Text;
+            if (Cb_students.SelectedItem is Student student)
+            {
+                var exams = contextExam;
+                exams.Student = student;
+                exams.Grade = int.Parse(grate);
+                var oobzor_student_list = exam.FirstOrDefault(x => x.Reg_num == student.Reg_num);
+                if (oobzor_student_list != null)
+                {
+                    MessageBox.Show("Такой студент уже есть в экзамене");
+                    return;
+                }
+                DB.DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Add(exams);
+                DB.DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
+                Refresh();
+            }
         }
     }
 }
