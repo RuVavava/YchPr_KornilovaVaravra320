@@ -181,6 +181,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EmplListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ExamListAddStudentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,6 +209,9 @@
     </Compile>
     <Compile Include="Pages\DisciplinesPages.xaml.cs">
       <DependentUpon>DisciplinesPages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EmplListPage.xaml.cs">
+      <DependentUpon>EmplListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ExamListAddStudentPage.xaml.cs">
       <DependentUpon>ExamListAddStudentPage.xaml</DependentUpon>

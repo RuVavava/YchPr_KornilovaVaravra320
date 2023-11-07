@@ -46,6 +46,8 @@ namespace YchPr_KornilovaVaravra320.Pages
                 NavigationService.Navigate(new ExamlistPages());
             else if (curretempl != null && curretempl.Post == "зав. кафедрой")
                 NavigationService.Navigate(new DepartmentListPage());
+            else if (curretempl != null && curretempl.Post == "инженер")
+                NavigationService.Navigate(new EmplListPage());
             else
                 MessageBox.Show("Введенные данные некорректны!");
         }
