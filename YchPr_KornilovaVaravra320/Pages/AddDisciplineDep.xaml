@@ -7,6 +7,63 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddDisciplineDep">
+    <Page.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -67,11 +124,11 @@
                 HorizontalAlignment="Center"  Background="#FF84C8F3" Click="back_authpage_btn_Click">
         </Button>
 
-        <ListView Width="700" Height="300" x:Name="oobzor_disc_list" 
+        <ListView Width="700" Height="200" x:Name="oobzor_disc_list" 
                   Grid.Column="0"
                   Grid.ColumnSpan="10"
-                  Grid.Row="1"
-                  Grid.RowSpan="7" SelectionChanged="oobzor_disc_list_SelectionChanged">
+                  Grid.Row="0"
+                  Grid.RowSpan="7" SelectionChanged="oobzor_disc_list_SelectionChanged" >
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -82,5 +139,80 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <StackPanel Grid.Column=" 1"
+                    Grid.ColumnSpan="8"
+                    Grid.Row="6"
+                    Height="100">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox x:Name="Cb_disc" ItemsSource="{Binding disciplines}"
+                          Grid.Column="0"
+                          Grid.ColumnSpan="2"
+                          Width="200"
+                          HorizontalAlignment="Left">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name_disc}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <TextBlock Grid.Column="2"
+                          Grid.ColumnSpan="2"
+                          Width="120"
+                          FontFamily="Courier New"
+                          FontWeight="DemiBold"
+                          FontSize="15"
+                          HorizontalAlignment="Left"
+                           VerticalAlignment="Center">
+                    Объем часов:</TextBlock>
+                
+                <TextBox  x:Name="TB_Size"
+                          Grid.Column="3"
+                          Grid.ColumnSpan="1"
+                          Width="100"
+                          FontFamily="Courier New"
+                          FontWeight="DemiBold"
+                          FontSize="15"
+                          HorizontalAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          >
+                </TextBox>
+
+                <Button   x:Name="Btn_Add_disc"
+                    Content="Добавить"
+                          Grid.Column="4"
+                          Grid.ColumnSpan="1"
+                          Width="100"
+                          Background="#FF84C8F3" 
+                          FontFamily="Courier New"
+                          FontWeight="DemiBold"
+                          FontSize="15"
+                          HorizontalContentAlignment="Center" Click="Btn_Add_disc_Click">
+                </Button>
+
+                <Button x:Name="delite_disc_btn"
+                        Content="Удалить"
+                        FontSize="15"
+                        Grid.Column="5"
+                        Grid.ColumnSpan="1"
+                        Width="100"
+                        FontFamily="Courier New"
+                        FontWeight="DemiBold"
+                        HorizontalContentAlignment="Center"
+                        HorizontalAlignment="Center" Background="#FFE24242" Click="delite_disc_btn_Click">
+                </Button>
+            </Grid>
+        </StackPanel>
+
     </Grid>
 </Page>

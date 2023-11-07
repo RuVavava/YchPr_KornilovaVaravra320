@@ -15,10 +15,10 @@ namespace YchPr_KornilovaVaravra320.DB
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class YchebnPraktika_Kornilova320Entities1 : DbContext
+    public partial class YchebnPraktika_Kornilova320Entities2 : DbContext
     {
-        public YchebnPraktika_Kornilova320Entities1()
-            : base("name=YchebnPraktika_Kornilova320Entities1")
+        public YchebnPraktika_Kornilova320Entities2()
+            : base("name=YchebnPraktika_Kornilova320Entities2")
         {
         }
     

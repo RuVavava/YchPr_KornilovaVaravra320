@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\agarc\source\repos\YchPr_KornilovaVaravra320\YchPr_KornilovaVaravra320\DB\Model2.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\agarc\source\repos\YchPr_KornilovaVaravra320\YchPr_KornilovaVaravra320\DB\Model3.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

@@ -24,6 +24,7 @@ namespace YchPr_KornilovaVaravra320.Pages
         public static List<Discipline> disciplines { get; set; }
         public static List<Department> department { get; set; }
         Department contectdep;
+        Discipline contextdisp;
         public AddDisciplineDep(Department department)
         {
             contectdep = department;
@@ -39,6 +40,13 @@ namespace YchPr_KornilovaVaravra320.Pages
             oobzor_disc_list.ItemsSource = DB.DbConnection.YchebnPraktika_Kornilova320Entities.Discipline.
                 Where(i => i.Cipher == contectdep.Cipher).ToList();
             TB_Name_Depart.Text = Convert.ToString(contectdep.Name_dep);
+            disciplines = new List<Discipline>
+                (DB.DbConnection.YchebnPraktika_Kornilova320Entities.Discipline.ToList());
+        }
+        private void Refresh() //Обновление листа
+        {
+            oobzor_disc_list.ItemsSource = DB.DbConnection.YchebnPraktika_Kornilova320Entities.Discipline.
+                            Where(i => i.Cipher == contectdep.Cipher).ToList();
         }
 
         private void back_authpage_btn_Click(object sender, RoutedEventArgs e) //Кнопка назад
@@ -46,9 +54,43 @@ namespace YchPr_KornilovaVaravra320.Pages
             NavigationService.Navigate(new Pages.DepartmentListPage());
         }
 
+
+        private void Btn_Add_disc_Click(object sender, RoutedEventArgs e)
+        {
+            Discipline disc = new Discipline();
+
+            int ymolch_size = 60;
+
+            if(Cb_disc.SelectedItem is Discipline disciplines)
+            {
+                var d = Cb_disc.SelectedItem as Discipline;
+                disc.Name_disc = d.Name_disc;
+                disc.Size = ymolch_size;
+                disc.Cipher = contectdep.Cipher;
+                DB.DbConnection.YchebnPraktika_Kornilova320Entities.Discipline.Add(disc);
+                DB.DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
+                Refresh();
+                InitializeDataInPage();
+
+            }
+        }
+
+
+
+        private void delite_disc_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (oobzor_disc_list.SelectedItem is Discipline discipline)
+            {
+                DB.DbConnection.YchebnPraktika_Kornilova320Entities.Discipline.Remove(discipline);
+                DB.DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
+                InitializeDataInPage();
+                Refresh();
+            }
+        }
+
         private void oobzor_disc_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Btn_Add_disc_Click(sender, e);
         }
     }
 }

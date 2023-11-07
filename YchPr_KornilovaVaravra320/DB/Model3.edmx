@@ -73,7 +73,7 @@
           <Key>
             <PropertyRef Name="ID_d" />
           </Key>
-          <Property Name="ID_d" Type="int" Nullable="false" />
+          <Property Name="ID_d" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Size" Type="int" />
           <Property Name="Name_disc" Type="nvarchar" MaxLength="50" />
           <Property Name="Cipher" Type="nvarchar" MaxLength="5" />
@@ -573,7 +573,7 @@
           <Key>
             <PropertyRef Name="ID_d" />
           </Key>
-          <Property Name="ID_d" Type="Int32" Nullable="false" />
+          <Property Name="ID_d" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Size" Type="Int32" />
           <Property Name="Name_disc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Cipher" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
@@ -876,7 +876,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="YchebnPraktika_Kornilova320Entities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="YchebnPraktika_Kornilova320Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Academicians" EntityType="Self.Academicians" />
           <EntitySet Name="Animals_Kornilova" EntityType="Self.Animals_Kornilova" />
           <EntitySet Name="Application" EntityType="Self.Application" />
@@ -1011,7 +1011,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище YchebnPraktika_Kornilova320ModelContainer" CdmEntityContainer="YchebnPraktika_Kornilova320Entities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище YchebnPraktika_Kornilova320ModelContainer" CdmEntityContainer="YchebnPraktika_Kornilova320Entities2">
           <EntitySetMapping Name="Academicians">
             <EntityTypeMapping TypeName="YchebnPraktika_Kornilova320Model.Academicians">
               <MappingFragment StoreEntitySet="Academicians">
