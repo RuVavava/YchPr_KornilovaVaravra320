@@ -107,7 +107,7 @@
         </Button>
 
 
-        <TextBlock x:Name="TB_NameEng"
+        <TextBlock x:Name="TB_Name_Eng"
                    Grid.Column="8"
                    Grid.ColumnSpan="2"
                    Grid.Row="0"
@@ -122,10 +122,10 @@
                 <GridView>
                     <GridView.Columns>
                         <GridViewColumn Width="100" Header="Таб. номер" DisplayMemberBinding="{Binding Num_emp}"></GridViewColumn>
-                        <GridViewColumn Width="150" Header="Кафедра" DisplayMemberBinding="{Binding Chipher}"></GridViewColumn>
-                        <GridViewColumn Width="250" Header="Фамилия" DisplayMemberBinding="{Binding FIO}"></GridViewColumn>
+                        <GridViewColumn Width="230" Header="Кафедра" DisplayMemberBinding="{Binding Department.Name_dep}"></GridViewColumn>
+                        <GridViewColumn Width="150" Header="Фамилия" DisplayMemberBinding="{Binding FIO}"></GridViewColumn>
                         <GridViewColumn Width="100" Header="Должность" DisplayMemberBinding="{Binding Post}"></GridViewColumn>
-                        <GridViewColumn Width="100" Header="Оклад" DisplayMemberBinding="{Binding Salary}"></GridViewColumn>
+                        <GridViewColumn Width="120" Header="Оклад" DisplayMemberBinding="{Binding Salary}"></GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

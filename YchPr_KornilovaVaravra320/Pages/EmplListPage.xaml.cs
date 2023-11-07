@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,10 +25,11 @@ namespace YchPr_KornilovaVaravra320.Pages
         public static List<Employee> employee { get; set; }
 
         public EmplListPage()
-        {
-            //TB_NameEng.Text = DB.DbConnection.loginpassUser.FIO;
-            oobzor_empl_list.ItemsSource = DB.DbConnection.YchebnPraktika_Kornilova320Entities.Employee.ToList();
+        {            
             InitializeComponent();
+            oobzor_empl_list.ItemsSource = DbConnection.YchebnPraktika_Kornilova320Entities.Employee.ToList();
+            TB_Name_Eng.Text = DbConnection.loginpassUser.FIO;
+
             this.DataContext = this;
         }
     }
