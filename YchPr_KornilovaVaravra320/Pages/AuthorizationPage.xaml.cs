@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,6 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using YchPr_KornilovaVaravra320.DB;
+
+
 
 namespace YchPr_KornilovaVaravra320.Pages
 {
@@ -50,6 +54,31 @@ namespace YchPr_KornilovaVaravra320.Pages
                 NavigationService.Navigate(new EmplListPage());
             else
                 MessageBox.Show("Введенные данные некорректны!");
+        }
+
+        private void createQrBtn_Click(object sender, RoutedEventArgs e) // Кнопка создания QR кода
+        {
+            // Ссылка на XL таблицу
+            string soucer_xl = "https://vk.com/pneech";
+            // Создание переменной библиотеки QRCoder
+            QRCoder.QRCodeGenerator qr = new QRCoder.QRCodeGenerator();
+            // Присваеваем значиения
+            QRCoder.QRCodeData data = qr.CreateQrCode(soucer_xl, QRCoder.QRCodeGenerator.ECCLevel.L);
+            // переводим в Qr
+            QRCoder.QRCode code = new QRCoder.QRCode(data);
+            Bitmap bitmap = code.GetGraphic(100);
+            /// Создание картинки
+            using (MemoryStream memory = new MemoryStream())
+            {
+                bitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Bmp);
+                memory.Position = 0;
+                BitmapImage bitmapimage = new BitmapImage();
+                bitmapimage.BeginInit();
+                bitmapimage.StreamSource = memory;
+                bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapimage.EndInit();
+                imageQr.Source = bitmapimage;
+            }
         }
     }
 }

@@ -187,5 +187,19 @@
                 FontFamily="Courier New"
                 FontWeight="DemiBold" Click="discipl_btn_Click" Background="#FF84C8F3">
         </Button>
+
+        <Button x:Name="createQrBtn" 
+                Content="Создать QR" 
+                Width="150" Height="50" 
+                Grid.Column="1" 
+                Grid.Row="7" 
+                Grid.ColumnSpan="2"
+                FontSize="22"
+                FontFamily="Courier New"
+                FontWeight="DemiBold" Background="#FF84C8F3" Click="createQrBtn_Click"
+                >
+        </Button>
+        <Image x:Name="imageQr" Height="200" Width="200" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2"></Image>
+
     </Grid>
 </Page>
