@@ -190,7 +190,7 @@
 
         <Button x:Name="createQrBtn" 
                 Content="Создать QR" 
-                Width="150" Height="50" 
+                Width="150" Height="45" 
                 Grid.Column="1" 
                 Grid.Row="7" 
                 Grid.ColumnSpan="2"
@@ -199,7 +199,7 @@
                 FontWeight="DemiBold" Background="#FF84C8F3" Click="createQrBtn_Click"
                 >
         </Button>
-        <Image x:Name="imageQr" Height="200" Width="200" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2"></Image>
+        <Image x:Name="imageQr" Height="200" Width="200" Grid.Column="0" Grid.Row="2" Grid.RowSpan="4" Grid.ColumnSpan="4"></Image>
 
     </Grid>
 </Page>
