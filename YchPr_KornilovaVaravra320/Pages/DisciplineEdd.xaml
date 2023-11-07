@@ -1,4 +1,4 @@
-﻿<Page x:Class="YchPr_KornilovaVaravra320.Pages.AddDisciplineDep"
+﻿<Page x:Class="YchPr_KornilovaVaravra320.Pages.DisciplineEdd"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YchPr_KornilovaVaravra320.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddDisciplineDep">
+      Title="DisciplineEdd">
     <Page.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -69,10 +69,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -88,86 +84,49 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <!--Текст Дисциплина -->
-        <TextBlock Grid.Column="3"
-                   Grid.ColumnSpan="4"
-                   Grid.Row="0"
-                   Grid.RowSpan="1"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Text="Дисциплины"
-                   FontSize="30"
-                   FontFamily="Courier New"
-                   FontWeight="DemiBold"/>
-
-        <TextBlock x:Name="TB_Name_Depart"
-                   Grid.Column="8"
-                   Grid.ColumnSpan="2"
-                   Grid.Row="0"
-        />
-
-        <!--Кнопка Вернуться-->
-        <Button x:Name="back_authpage_btn"
-                Content=" ◀️ "
-                FontSize="15"
-                Grid.Column="0"
-                Grid.ColumnSpan="1"
-                Grid.Row="0"
-                Grid.RowSpan="1"
-                Height="30"
-                Width="40"
-                FontFamily="Courier New"
-                FontWeight="DemiBold"
-                HorizontalContentAlignment="Left"
-                HorizontalAlignment="Center"  Background="#FF84C8F3" Click="back_authpage_btn_Click">
-        </Button>
-
-        <ListView Width="700" Height="200" x:Name="oobzor_disc_list" 
-                  Grid.Column="0"
-                  Grid.ColumnSpan="10"
-                  Grid.Row="0"
-                  Grid.RowSpan="7" SelectionChanged="oobzor_disc_list_SelectionChanged" >
-            <ListView.View>
-                <GridView>
-                    <GridView.Columns>
-                        <GridViewColumn Width="350" Header="Кафедра" DisplayMemberBinding="{Binding Department.Name_dep}"></GridViewColumn>
-                        <GridViewColumn Width="200" Header="Дисциплина" DisplayMemberBinding="{Binding Name_disc}"></GridViewColumn>
-                        <GridViewColumn Width="150" Header="Объем часов" DisplayMemberBinding="{Binding Size}"></GridViewColumn>
-                    </GridView.Columns>
-                </GridView>
-            </ListView.View>
-        </ListView>
-
-        <StackPanel Grid.Column=" 1"
-                    Grid.ColumnSpan="8"
-                    Grid.Row="6"
-                    Height="50">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <ComboBox x:Name="Cb_disc" ItemsSource="{Binding disciplines}"
-                          Grid.Column="0"
+        <TextBlock Grid.Column="2"
                           Grid.ColumnSpan="2"
+                   Grid.Row="0"
+                          Width="220"
+                          FontFamily="Courier New"
+                          FontWeight="DemiBold"
+                          FontSize="25"
+                          HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+            >РЕДАКТИРОВАНИЕ</TextBlock>
+        
+        <TextBlock Grid.Column="1"
+                          Grid.ColumnSpan="2"
+                   Grid.Row="2"
+                          Width="220"
+                          FontFamily="Courier New"
+                          FontWeight="DemiBold"
+                          FontSize="15"
+                          HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+            >Наименование дисциплины:</TextBlock>
+
+        <ComboBox x:Name="Cb_edd_disc" ItemsSource="{Binding disciplines}"
+                          Grid.Column="3"
+                          Grid.ColumnSpan="2"
+                            Grid.Row="2"
                           Width="200"
+                  Height="27"
                           HorizontalAlignment="Left">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Name_disc}"/>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name_disc}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
-                <TextBlock Grid.Column="2"
-                          Grid.ColumnSpan="2"
+        <TextBlock Grid.Column="1"
+                          Grid.ColumnSpan="1"
+                   Grid.Row="3"
                           Width="120"
                           FontFamily="Courier New"
                           FontWeight="DemiBold"
@@ -175,59 +134,47 @@
                           HorizontalAlignment="Left"
                            VerticalAlignment="Center">
                     Объем часов:</TextBlock>
-                
-                <TextBox  x:Name="TB_Size"
+
+        <TextBox  x:Name="TB_Size"
                           Grid.Column="3"
-                          Grid.ColumnSpan="1"
-                          Width="100"
+                          Grid.ColumnSpan="2"
+                  Grid.Row="3"
+                          Width="200"
+                  Height="25"
                           FontFamily="Courier New"
                           FontWeight="DemiBold"
                           FontSize="15"
-                          HorizontalAlignment="Center"
+                          HorizontalAlignment="Left"
                           HorizontalContentAlignment="Center"
                           >
-                </TextBox>
+        </TextBox>
 
-                <Button   x:Name="Btn_Add_disc"
-                    Content="Добавить"
-                          Grid.Column="4"
+        <Button   x:Name="Btn_Save_disc"
+                    Content="Сохранить"
+                          Grid.Column="3"
                           Grid.ColumnSpan="1"
-                          Width="100"
+                  Grid.Row="4"
+                          Width="120"
+                            Height="30"
                           Background="#FF84C8F3" 
                           FontFamily="Courier New"
                           FontWeight="DemiBold"
                           FontSize="15"
-                          HorizontalContentAlignment="Center" Click="Btn_Add_disc_Click">
-                </Button>
+                          HorizontalContentAlignment="Center" Click="Btn_Save_disc_Click">
+        </Button>
 
-                <Button x:Name="delite_disc_btn"
-                        Content="Удалить"
+        <Button x:Name="Otmena_disc_btn"
+                        Content="Отмена"
                         FontSize="15"
-                        Grid.Column="5"
-                        Grid.ColumnSpan="1"
-                        Width="100"
+                          Grid.Column="4"
+                          Grid.ColumnSpan="1"
+                  Grid.Row="4"
+                          Width="120"
+                            Height="30"
                         FontFamily="Courier New"
                         FontWeight="DemiBold"
                         HorizontalContentAlignment="Center"
-                        HorizontalAlignment="Center" Background="#FFE24242" Click="delite_disc_btn_Click">
-                </Button>
-
-
-            </Grid>
-        </StackPanel>
-                <Button x:Name="edd_disc_btn"
-                        Content="Изменить"
-                        FontSize="15"
-                        Grid.Column="6"
-                        Grid.ColumnSpan="3"
-                        Grid.Row="6"
-                        Grid.RowSpan="2"
-                        Width="100"
-                        Height="25"
-                        FontFamily="Courier New"
-                        FontWeight="DemiBold"
-                        HorizontalContentAlignment="Center"
-                        HorizontalAlignment="Center" Background="#FFFFC080" Click="edd_disc_btn_Click">
-                </Button>
+                        HorizontalAlignment="Center" Background="#FFE24242" Click="Otmena_disc_btn_Click">
+        </Button>
     </Grid>
 </Page>

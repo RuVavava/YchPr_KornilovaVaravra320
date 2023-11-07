@@ -24,7 +24,6 @@ namespace YchPr_KornilovaVaravra320.Pages
         public static List<Discipline> disciplines { get; set; }
         public static List<Department> department { get; set; }
         Department contectdep;
-        Discipline contextdisp;
         public AddDisciplineDep(Department department)
         {
             contectdep = department;
@@ -59,13 +58,11 @@ namespace YchPr_KornilovaVaravra320.Pages
         {
             Discipline disc = new Discipline();
 
-            int ymolch_size = 60;
-
             if(Cb_disc.SelectedItem is Discipline disciplines)
             {
                 var d = Cb_disc.SelectedItem as Discipline;
                 disc.Name_disc = d.Name_disc;
-                disc.Size = ymolch_size;
+                disc.Size = Convert.ToInt32(TB_Size.Text);
                 disc.Cipher = contectdep.Cipher;
                 DB.DbConnection.YchebnPraktika_Kornilova320Entities.Discipline.Add(disc);
                 DB.DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
@@ -90,7 +87,12 @@ namespace YchPr_KornilovaVaravra320.Pages
 
         private void oobzor_disc_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Btn_Add_disc_Click(sender, e);
+
+        }
+
+        private void edd_disc_btn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.DisciplineEdd());
         }
     }
 }

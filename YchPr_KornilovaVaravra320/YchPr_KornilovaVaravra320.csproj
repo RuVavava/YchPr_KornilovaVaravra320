@@ -173,6 +173,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\DisciplineEdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\DisciplinesPages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -195,6 +199,9 @@
     </Compile>
     <Compile Include="Pages\DepartmentListPage.xaml.cs">
       <DependentUpon>DepartmentListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DisciplineEdd.xaml.cs">
+      <DependentUpon>DisciplineEdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\DisciplinesPages.xaml.cs">
       <DependentUpon>DisciplinesPages.xaml</DependentUpon>
