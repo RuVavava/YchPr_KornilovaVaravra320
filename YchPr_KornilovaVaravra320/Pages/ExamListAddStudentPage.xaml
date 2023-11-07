@@ -178,7 +178,7 @@
                           FontFamily="Courier New"
                           FontWeight="DemiBold"
                           FontSize="15"
-                          HorizontalContentAlignment="Center">
+                          HorizontalContentAlignment="Center" Click="Btn_AddStudent_Click">
                 </Button>
                 
                 <Button x:Name="delite_btn"
@@ -190,7 +190,7 @@
                         FontFamily="Courier New"
                         FontWeight="DemiBold"
                         HorizontalContentAlignment="Center"
-                        HorizontalAlignment="Center" Background="#FFE24242">
+                        HorizontalAlignment="Center" Background="#FFE24242" Click="delite_btn_Click">
                 </Button>
             </Grid>
         </StackPanel>

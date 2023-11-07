@@ -27,7 +27,7 @@ namespace YchPr_KornilovaVaravra320.Pages
         public DepartmentListPage()
         {
             InitializeComponent();
-            oobzor_department_list.ItemsSource = DB.DbConnection.YchebnPraktika_Kornilova320Entities.Department.ToList();
+            oobzor_department_list.ItemsSource = DB.DbConnection.YchebnPraktika_Kornilova320Entities.Department.Where(i => i.Cipher == DB.DbConnection.loginpassUser.Cipher).ToList();
             TB_Name_ZavDep.Text = DB.DbConnection.loginpassUser.FIO;
             this.DataContext = this;
         }

@@ -110,19 +110,17 @@
                            VerticalAlignment="Center"
             >Наименование дисциплины:</TextBlock>
 
-        <ComboBox x:Name="Cb_edd_disc" ItemsSource="{Binding disciplines}"
-                          Grid.Column="3"
+        <ComboBox x:Name="Cb_edd_disc" 
+                  Grid.Column="3"
                           Grid.ColumnSpan="2"
                             Grid.Row="2"
                           Width="200"
                   Height="27"
-                          HorizontalAlignment="Left">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name_disc}"/>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
+                          HorizontalAlignment="Left"
+                  DisplayMemberPath="Name_disc"
+                  Text="{Binding disc.Name_disc}">
         </ComboBox>
+
 
         <TextBlock Grid.Column="1"
                           Grid.ColumnSpan="1"
@@ -146,6 +144,7 @@
                           FontSize="15"
                           HorizontalAlignment="Left"
                           HorizontalContentAlignment="Center"
+                          Text="{Binding disc.Size}"
                           >
         </TextBox>
 

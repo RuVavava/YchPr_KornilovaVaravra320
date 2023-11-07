@@ -23,10 +23,12 @@ namespace YchPr_KornilovaVaravra320.Pages
     {
         public static List<Discipline> disciplines { get; set; }
         public static List<Department> department { get; set; }
+        public static Department dep { get; set; }
         Department contectdep;
         public AddDisciplineDep(Department department)
         {
             contectdep = department;
+            dep = department;
             InitializeComponent();
             InitializeDataInPage();
             this.DataContext = this;
@@ -92,7 +94,16 @@ namespace YchPr_KornilovaVaravra320.Pages
 
         private void edd_disc_btn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Pages.DisciplineEdd());
+
+            if (oobzor_disc_list.SelectedItem is Discipline discipline)
+            {
+                oobzor_disc_list.SelectedItem = null;
+                NavigationService.Navigate(new DisciplineEdd(discipline));
+
+                InitializeDataInPage();
+                Refresh();
+            }
+            
         }
     }
 }

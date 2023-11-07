@@ -158,7 +158,8 @@
                           Grid.Column="0"
                           Grid.ColumnSpan="2"
                           Width="200"
-                          HorizontalAlignment="Left">
+                          HorizontalAlignment="Left"
+                         >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name_disc}"/>
@@ -175,7 +176,7 @@
                           HorizontalAlignment="Left"
                            VerticalAlignment="Center">
                     Объем часов:</TextBlock>
-                
+
                 <TextBox  x:Name="TB_Size"
                           Grid.Column="3"
                           Grid.ColumnSpan="1"
