@@ -51,12 +51,12 @@ namespace YchPr_KornilovaVaravra320.Pages
         }
 
 
-        private void back_authpage_btn_Click(object sender, RoutedEventArgs e)
+        private void back_authpage_btn_Click(object sender, RoutedEventArgs e) //Кнопка назад
         {
             NavigationService.Navigate(new Pages.ExamlistPages());
         }
 
-        private void Refresh()
+        private void Refresh() //Обновление листа
         {
             oobzor_student_list.ItemsSource = DB.DbConnection.YchebnPraktika_Kornilova320Entities.Exam.
                 Where(i => i.Date_e == contextExam.Date_e && i.ID_d == contextExam.ID_d).ToList();
@@ -68,11 +68,12 @@ namespace YchPr_KornilovaVaravra320.Pages
             {
                 DB.DbConnection.YchebnPraktika_Kornilova320Entities.Exam.Remove(exam);
                 DB.DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
-                Refresh();
+                InitializeDataInPage();
+                NavigationService.Navigate(new Pages.ExamlistPages());
             }
         }
 
-        private void Btn_AddStudent_Click(object sender, RoutedEventArgs e)
+        private void Btn_AddStudent_Click(object sender, RoutedEventArgs e) //Добавление студента
         {
             string grate = "2";
             var TBmark = Cb_Mark.SelectedValue as TextBlock;

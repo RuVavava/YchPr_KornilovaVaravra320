@@ -42,7 +42,7 @@ namespace YchPr_KornilovaVaravra320.Pages
             var curretempl = employee.FirstOrDefault(i => i.Num_emp == login && i.Password == password);
             DbConnection.loginpassUser = curretempl;
             
-            if (curretempl != null && curretempl.Post == "преподаватель")
+            if (curretempl != null /*&& curretempl.Post == "преподаватель"*/)
                 NavigationService.Navigate(new ExamlistPages());
             else
                 MessageBox.Show("Введенные данные некорректны!");
