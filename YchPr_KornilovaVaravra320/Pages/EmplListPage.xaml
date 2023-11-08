@@ -103,7 +103,7 @@
                 FontFamily="Courier New"
                 FontWeight="DemiBold"
                 HorizontalContentAlignment="Left"
-                HorizontalAlignment="Center" Background="#FF84C8F3">
+                HorizontalAlignment="Center" Background="#FF84C8F3" Click="back_authpage_btn_Click">
         </Button>
 
 
@@ -142,7 +142,7 @@
                         FontFamily="Courier New"
                         FontWeight="DemiBold"
                         HorizontalContentAlignment="Center"
-                        HorizontalAlignment="Center" Background="#FF84C8F3">
+                        HorizontalAlignment="Center" Background="#FF84C8F3" Click="Add_Empl_btn_Click">
         </Button>
 
         <Button x:Name="Edd_Empl_btn"

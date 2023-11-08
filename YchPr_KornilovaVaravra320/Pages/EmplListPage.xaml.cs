@@ -55,7 +55,12 @@ namespace YchPr_KornilovaVaravra320.Pages
 
         private void Add_Empl_btn_Click(object sender, RoutedEventArgs e) //Добавление сотрудника, переход на другую страницу
         {
+            NavigationService.Navigate(new Pages.AddEmplPagexaml());
+        }
 
+        private void back_authpage_btn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Pages.AuthorizationPage());
         }
     }
 }
