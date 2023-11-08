@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ namespace YchPr_KornilovaVaravra320.Pages
             contextExam = exam;
             oobzor_student_list.ItemsSource = DB.DbConnection.YchebnPraktika_Kornilova320Entities.Exam.
                 Where(i => i.Date_e == contextExam.Date_e && i.ID_d == contextExam.ID_d).ToList();
-            TB_DateE.Text = Convert.ToString(contextExam.Date_e);
+            //TB_DateE.Text = Convert.ToString(contextExam.Date_e);
             TB_NameE.Text = Convert.ToString(contextExam.Discipline.Name_disc);
             InitializeDataInPage();
             students = new List<Student>

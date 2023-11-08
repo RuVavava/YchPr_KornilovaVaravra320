@@ -111,12 +111,13 @@
         <TextBlock x:Name="TB_DateE"
                    Grid.Column="6"
                    Grid.ColumnSpan="2"
-                   Grid.Row="0"
+                   Grid.Row="0" 
         />
         <TextBlock x:Name="TB_NameE"
                    Grid.Column="8"
                    Grid.ColumnSpan="2"
                    Grid.Row="0"
+                   Text="{Binding contextExam.Date_e, StringFormat= MM/dd/yy}"
         />
 
         <ListView Width="700" Height="200" x:Name="oobzor_student_list" 
