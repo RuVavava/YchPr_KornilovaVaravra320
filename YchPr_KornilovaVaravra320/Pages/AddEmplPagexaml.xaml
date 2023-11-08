@@ -1,0 +1,301 @@
+﻿<Page x:Class="YchPr_KornilovaVaravra320.Pages.AddEmplPagexaml"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:YchPr_KornilovaVaravra320.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEmplPagexaml">
+    <Page.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="2"
+                   Grid.ColumnSpan="6"
+                   Grid.Row="0"
+                   Grid.RowSpan="1"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Text="Добавление сотрудника"
+                   FontSize="30"
+                   FontFamily="Courier New"
+                   FontWeight="DemiBold"/>
+        
+        <TextBox  x:Name="TB_FIO"
+                          Grid.Column="3"
+                          Grid.ColumnSpan="3"
+                          Grid.Row="2"
+                          Width="200"
+                          Height="27"
+                          FontFamily="Courier New"
+                          FontWeight="DemiBold"
+                          FontSize="15"
+                          HorizontalAlignment="Left"
+                          HorizontalContentAlignment="Center"
+                          >
+        </TextBox>
+
+
+        <TextBlock Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="2"
+                   Grid.RowSpan="1"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Text="Фамилия И.О. :"
+                   FontSize="17"
+                   FontFamily="Courier New"/>
+
+        <TextBlock Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="3"
+                   Grid.RowSpan="1"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Text="Должность :"
+                   FontSize="17"
+                   FontFamily="Courier New"/>
+        <ComboBox x:Name ="Cb_Post"
+                          Grid.Column="3"
+                          Grid.ColumnSpan="3"
+                  Grid.Row="3"
+                          Width="200" Height="27" HorizontalAlignment="Left">
+            <TextBlock Text="зав. кафедрой"/>
+            <TextBlock Text="преподаватель"/>
+            <TextBlock Text="инженер"/>
+        </ComboBox>
+
+        <TextBlock Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="4"
+                   Grid.RowSpan="1"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Text="Оклад :"
+                   FontSize="17"
+                   FontFamily="Courier New"/>
+        <TextBox  x:Name="TB_Salary"
+                          Grid.Column="3"
+                          Grid.ColumnSpan="3"
+                          Grid.Row="4"
+                          Width="200"
+                          Height="27"
+                          FontFamily="Courier New"
+                          FontWeight="DemiBold"
+                          FontSize="15"
+                          HorizontalAlignment="Left"
+                          HorizontalContentAlignment="Center"
+                          ></TextBox>
+
+
+        <TextBlock Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="5"
+                   Grid.RowSpan="1"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Text="Зав. кафедры :"
+                   FontSize="17"
+                   FontFamily="Courier New"/>
+        
+        <CheckBox x:Name="ZavFaf"
+            Grid.Row="5"
+                  Grid.Column="3"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  IsChecked="{x:Null}"/>
+        
+        <TextBox  x:Name="TB_Cipher"
+                          Grid.Column="4"
+                          Grid.ColumnSpan="1"
+                          Grid.Row="5"
+                          Width="70"
+                          Height="27"
+                          FontFamily="Courier New"
+                          FontWeight="DemiBold"
+                          FontSize="15"
+                          HorizontalAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          ></TextBox>
+
+        <ComboBox x:Name="Cb_depa_Empl" ItemsSource="{Binding departament}"
+                          Grid.Column="3"
+                          Grid.ColumnSpan="3"
+                           Grid.Row="6"
+                          Width="200"
+                           Height="27"
+                          HorizontalAlignment="Left"
+                         >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name_dep}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="6"
+                   Grid.RowSpan="1"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Text="Кафедра :"
+                   FontSize="17"
+                   FontFamily="Courier New"/>
+
+        <TextBlock Grid.Column="6"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="2"
+                   Grid.RowSpan="1"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Text="Логин :"
+                   FontSize="17"
+                   FontFamily="Courier New"/>
+        <TextBox  x:Name="TB_login"
+                          Grid.Column="7"
+                          Grid.ColumnSpan="3"
+                          Grid.Row="2"
+                          Width="200"
+                          Height="27"
+                          FontFamily="Courier New"
+                          FontWeight="DemiBold"
+                          FontSize="15"
+                          HorizontalAlignment="Left"
+                          HorizontalContentAlignment="Center"
+                          ></TextBox>
+
+        <TextBlock Grid.Column="6"
+                   Grid.ColumnSpan="2"
+                   Grid.Row="3"
+                   Grid.RowSpan="1"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Text="Пароль :"
+                   FontSize="17"
+                   FontFamily="Courier New"/>
+        <TextBox  x:Name="TB_password"
+                          Grid.Column="7"
+                          Grid.ColumnSpan="3"
+                          Grid.Row="3"
+                          Width="200"
+                          Height="27"
+                          FontFamily="Courier New"
+                          FontWeight="DemiBold"
+                          FontSize="15"
+                          HorizontalAlignment="Left"
+                          HorizontalContentAlignment="Center"
+                          ></TextBox>
+
+        <!--Кнопка Вернуться-->
+        <Button x:Name="back_authpage_btn"
+                Content=" ◀️ "
+                FontSize="15"
+                Grid.Column="0"
+                Grid.ColumnSpan="1"
+                Grid.Row="0"
+                Grid.RowSpan="1"
+                Height="30"
+                Width="40"
+                FontFamily="Courier New"
+                FontWeight="DemiBold"
+                HorizontalContentAlignment="Left"
+                HorizontalAlignment="Center" Background="#FF84C8F3" Click="back_authpage_btn_Click">
+        </Button>
+
+        <Button x:Name="Save_Empl_btn"
+                        Content="Сохранить"
+                        FontSize="15"
+                        Grid.Column="7"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="6"
+                        Width="120"
+                        Height="30"
+                        FontFamily="Courier New"
+                        FontWeight="DemiBold"
+                        HorizontalContentAlignment="Center"
+                        HorizontalAlignment="Center" Background="#FF84C8F3">
+        </Button>
+
+    </Grid>
+</Page>

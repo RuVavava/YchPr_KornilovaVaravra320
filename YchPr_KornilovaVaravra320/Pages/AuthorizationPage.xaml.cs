@@ -59,7 +59,7 @@ namespace YchPr_KornilovaVaravra320.Pages
         private void createQrBtn_Click(object sender, RoutedEventArgs e) // Кнопка создания QR кода
         {
             // Ссылка на XL таблицу
-            string soucer_xl = "https://vk.com/pneech";
+            string soucer_xl = "https://docs.google.com/spreadsheets/d/1yGppfv2T5KPtFWzNq25RjlLyerbe-OjY_jnT04ON9iI/edit#gid=0";
             // Создание переменной библиотеки QRCoder
             QRCoder.QRCodeGenerator qr = new QRCoder.QRCodeGenerator();
             // Присваеваем значиения

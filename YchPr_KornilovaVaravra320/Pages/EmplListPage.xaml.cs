@@ -32,5 +32,30 @@ namespace YchPr_KornilovaVaravra320.Pages
 
             this.DataContext = this;
         }
+
+        private void Refresh() //Обновление листа
+        {
+            oobzor_empl_list.ItemsSource = DbConnection.YchebnPraktika_Kornilova320Entities.Employee.ToList();
+        }
+
+        private void delite_Empl_btn_Click(object sender, RoutedEventArgs e) //Удаление сотрудника
+        {
+            if (oobzor_empl_list.SelectedItem is Employee employee)
+            {
+                DB.DbConnection.YchebnPraktika_Kornilova320Entities.Employee.Remove(employee);
+                DB.DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
+                Refresh();
+            }
+        }
+
+        private void oobzor_empl_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Add_Empl_btn_Click(object sender, RoutedEventArgs e) //Добавление сотрудника, переход на другую страницу
+        {
+
+        }
     }
 }
