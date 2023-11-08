@@ -140,7 +140,6 @@
                           Width="200"
                   Height="25"
                           FontFamily="Courier New"
-                          FontWeight="DemiBold"
                           FontSize="15"
                           HorizontalAlignment="Left"
                           HorizontalContentAlignment="Center"

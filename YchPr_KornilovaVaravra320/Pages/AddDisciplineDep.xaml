@@ -181,7 +181,6 @@
                           Grid.ColumnSpan="1"
                           Width="100"
                           FontFamily="Courier New"
-                          FontWeight="DemiBold"
                           FontSize="15"
                           HorizontalAlignment="Center"
                           HorizontalContentAlignment="Center"
