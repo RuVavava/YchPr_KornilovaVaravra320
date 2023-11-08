@@ -184,8 +184,7 @@
                   Grid.Column="3"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"
-                  IsThreeState="True"
-                  IsChecked="{x:Null}"/>
+                  IsEnabled="False"/>
 
         <TextBox  x:Name="TB_Cipher_edd"
                           Grid.Column="4"

@@ -140,6 +140,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model3.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DB\Partial\Employee.cs" />
     <Compile Include="DB\SchoolStudents.cs">
       <DependentUpon>Model3.tt</DependentUpon>
     </Compile>
@@ -272,7 +273,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="func\" />
-    <Folder Include="IMG\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

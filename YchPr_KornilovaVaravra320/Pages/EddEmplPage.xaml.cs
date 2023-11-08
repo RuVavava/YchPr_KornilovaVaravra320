@@ -29,6 +29,11 @@ namespace YchPr_KornilovaVaravra320.Pages
         public EddEmplPage(Employee employee)
         {
             InitializeComponent();
+            if (employee.Num_emp == employee.Chief)
+                ZavFaf_edd.IsChecked = true;
+            else
+                ZavFaf_edd.IsChecked = false;
+
             departments = new List<Department>(DB.DbConnection.YchebnPraktika_Kornilova320Entities.Department.ToList());
             context_emp = employee;
             emp_edd = employee;
