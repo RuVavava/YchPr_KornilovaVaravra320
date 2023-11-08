@@ -1,4 +1,4 @@
-﻿<Page x:Class="YchPr_KornilovaVaravra320.Pages.AddEmplPagexaml"
+﻿<Page x:Class="YchPr_KornilovaVaravra320.Pages.EddEmplPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YchPr_KornilovaVaravra320.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddEmplPagexaml">
+      Title="EddEmplPage">
     <Page.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -96,12 +96,12 @@
                    Grid.RowSpan="1"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Text="Добавление сотрудника"
+                   Text="Редактирование сотрудника"
                    FontSize="30"
                    FontFamily="Courier New"
                    FontWeight="DemiBold"/>
-        
-        <TextBox  x:Name="TB_FIO"
+
+        <TextBox  x:Name="TB_FIO_edd"
                           Grid.Column="3"
                           Grid.ColumnSpan="3"
                           Grid.Row="2"
@@ -112,7 +112,7 @@
                           FontSize="15"
                           HorizontalAlignment="Left"
                           HorizontalContentAlignment="Center"
-                          >
+                          Text="{Binding emp_edd.FIO}">
         </TextBox>
 
 
@@ -135,11 +135,12 @@
                    Text="Должность :"
                    FontSize="17"
                    FontFamily="Courier New"/>
-        <ComboBox x:Name ="Cb_Post"
+        <ComboBox x:Name ="Cb_Post_edd"
                           Grid.Column="3"
                           Grid.ColumnSpan="3"
                   Grid.Row="3"
-                          Width="200" Height="27" HorizontalAlignment="Left">
+                          Width="200" Height="27" HorizontalAlignment="Left"
+                  Text="{Binding emp_edd.Post}">
             <TextBlock Text="зав. кафедрой"/>
             <TextBlock Text="преподаватель"/>
             <TextBlock Text="инженер"/>
@@ -154,7 +155,7 @@
                    Text="Оклад :"
                    FontSize="17"
                    FontFamily="Courier New"/>
-        <TextBox  x:Name="TB_Salary"
+        <TextBox  x:Name="TB_Salary_edd"
                           Grid.Column="3"
                           Grid.ColumnSpan="3"
                           Grid.Row="4"
@@ -165,7 +166,7 @@
                           FontSize="15"
                           HorizontalAlignment="Left"
                           HorizontalContentAlignment="Center"
-                          ></TextBox>
+                          Text="{Binding emp_edd.Salary}"></TextBox>
 
 
         <TextBlock Grid.Column="1"
@@ -177,18 +178,16 @@
                    Text="Зав. кафедры :"
                    FontSize="17"
                    FontFamily="Courier New"/>
-        
-        <CheckBox x:Name="ZavFaf"
+
+        <CheckBox x:Name="ZavFaf_edd"
             Grid.Row="5"
                   Grid.Column="3"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"
                   IsThreeState="True"
-                  IsChecked="{x:Null}"
-                  Checked="ZavFaf_Checked"
-                  Unchecked="ZavFaf_Unchecked"/>
-        
-        <TextBox  x:Name="TB_Cipher"
+                  IsChecked="{x:Null}"/>
+
+        <TextBox  x:Name="TB_Cipher_edd"
                           Grid.Column="4"
                           Grid.ColumnSpan="1"
                           Grid.Row="5"
@@ -199,21 +198,17 @@
                           FontSize="15"
                           HorizontalAlignment="Center"
                           HorizontalContentAlignment="Center"
-                          ></TextBox>
+                          Text="{Binding emp_edd.Chief}"></TextBox>
 
-        <ComboBox x:Name="Cb_depa_Empl" ItemsSource="{Binding departments}"
+        <ComboBox x:Name="Cb_depa_Empl_edd" 
                           Grid.Column="3"
                           Grid.ColumnSpan="3"
                            Grid.Row="6"
                           Width="200"
                            Height="27"
                           HorizontalAlignment="Left"
-                         >
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name_dep}"/>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
+                                           DisplayMemberPath="Name_dep"
+                  Text="{Binding emp_edd.Department.Name_dep}">
         </ComboBox>
 
         <TextBlock Grid.Column="1"
@@ -235,7 +230,7 @@
                    Text="Логин :"
                    FontSize="17"
                    FontFamily="Courier New"/>
-        <TextBox  x:Name="TB_login"
+        <TextBox  x:Name="TB_login_edd"
                           Grid.Column="7"
                           Grid.ColumnSpan="3"
                           Grid.Row="2"
@@ -246,7 +241,7 @@
                           FontSize="15"
                           HorizontalAlignment="Left"
                           HorizontalContentAlignment="Center"
-                          ></TextBox>
+                          Text="{Binding emp_edd.Num_emp}"></TextBox>
 
         <TextBlock Grid.Column="6"
                    Grid.ColumnSpan="2"
@@ -257,7 +252,7 @@
                    Text="Пароль:"
                    FontSize="17"
                    FontFamily="Courier New"/>
-        <TextBox  x:Name="TB_password"
+        <TextBox  x:Name="TB_password_edd"
                           Grid.Column="7"
                           Grid.ColumnSpan="3"
                           Grid.Row="3"
@@ -268,7 +263,7 @@
                           FontSize="15"
                           HorizontalAlignment="Left"
                           HorizontalContentAlignment="Center"
-                          ></TextBox>
+                          Text="{Binding emp_edd.Password}"></TextBox>
 
         <!--Кнопка Вернуться-->
         <Button x:Name="back_authpage_btn"
@@ -286,7 +281,7 @@
                 HorizontalAlignment="Center" Background="#FF84C8F3" Click="back_authpage_btn_Click">
         </Button>
 
-        <Button x:Name="Save_Empl_btn"
+        <Button x:Name="Save_Empl_btn_edd"
                         Content="Сохранить"
                         FontSize="15"
                         Grid.Column="7"
@@ -297,8 +292,7 @@
                         FontFamily="Courier New"
                         FontWeight="DemiBold"
                         HorizontalContentAlignment="Center"
-                        HorizontalAlignment="Center" Background="#FF84C8F3" Click="Save_Empl_btn_Click">
+                        HorizontalAlignment="Center" Background="#FF84C8F3" Click="Save_Empl_btn_edd_Click" >
         </Button>
-
     </Grid>
 </Page>

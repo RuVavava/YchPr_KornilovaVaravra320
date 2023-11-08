@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -58,8 +59,22 @@ namespace YchPr_KornilovaVaravra320.Pages
                 DB.DbConnection.YchebnPraktika_Kornilova320Entities.Employee.Add(emp);
                 DB.DbConnection.YchebnPraktika_Kornilova320Entities.SaveChanges();
                 NavigationService.Navigate(new Pages.EmplListPage());
+
             }
 
         }
+
+        private void ZavFaf_Checked(object sender, RoutedEventArgs e) //Отмечен
+        {
+            MessageBox.Show("Сотрудник является Зав. кафедрой");
+
+        }
+
+        private void ZavFaf_Unchecked(object sender, RoutedEventArgs e) //Не отмечен
+        {
+
+        }
+
+
     }
 }

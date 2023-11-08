@@ -62,5 +62,16 @@ namespace YchPr_KornilovaVaravra320.Pages
         {
             NavigationService.Navigate(new Pages.AuthorizationPage());
         }
+
+        private void Edd_Empl_btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (oobzor_empl_list.SelectedItem is Employee employee)
+            {
+                oobzor_empl_list.SelectedItem = null;
+                NavigationService.Navigate(new EddEmplPage(employee));
+                Refresh();
+            }
+
+        }
     }
 }
