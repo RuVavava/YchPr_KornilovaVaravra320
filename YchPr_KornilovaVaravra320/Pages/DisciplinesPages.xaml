@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YchPr_KornilovaVaravra320.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="DisciplinesPages">
+      Title="Дисциплины">
     <Page.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">

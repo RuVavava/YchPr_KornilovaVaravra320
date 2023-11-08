@@ -70,11 +70,6 @@ namespace YchPr_KornilovaVaravra320.Pages
 
         }
 
-        private void ZavFaf_Unchecked(object sender, RoutedEventArgs e) //Не отмечен
-        {
-
-        }
-
 
     }
 }

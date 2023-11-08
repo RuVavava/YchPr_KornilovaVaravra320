@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YchPr_KornilovaVaravra320.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddDisciplineDep">
+      Title="Дисциплины">
     <Page.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -132,9 +132,8 @@
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Width="350" Header="Кафедра" DisplayMemberBinding="{Binding Department.Name_dep}"></GridViewColumn>
-                        <GridViewColumn Width="200" Header="Дисциплина" DisplayMemberBinding="{Binding Name_disc}"></GridViewColumn>
-                        <GridViewColumn Width="150" Header="Объем часов" DisplayMemberBinding="{Binding Size}"></GridViewColumn>
+                        <GridViewColumn Width="450" Header="Дисциплина" DisplayMemberBinding="{Binding Name_disc}"></GridViewColumn>
+                        <GridViewColumn Width="250" Header="Объем часов" DisplayMemberBinding="{Binding Size}"></GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>

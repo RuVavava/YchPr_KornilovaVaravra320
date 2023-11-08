@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YchPr_KornilovaVaravra320.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddEmplPagexaml">
+      Title="Добавить сотрудника">
     <Page.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -111,7 +111,7 @@
                           FontWeight="DemiBold"
                           FontSize="15"
                           HorizontalAlignment="Left"
-                          HorizontalContentAlignment="Center"
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                           >
         </TextBox>
 
@@ -164,7 +164,7 @@
                           FontWeight="DemiBold"
                           FontSize="15"
                           HorizontalAlignment="Left"
-                          HorizontalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
                           ></TextBox>
 
 
@@ -184,9 +184,8 @@
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"
                   IsThreeState="True"
-                  IsChecked="{x:Null}"
-                  Checked="ZavFaf_Checked"
-                  Unchecked="ZavFaf_Unchecked"/>
+                  IsChecked="False"
+                  Checked="ZavFaf_Checked"/>
         
         <TextBox  x:Name="TB_Cipher"
                           Grid.Column="4"
@@ -198,7 +197,7 @@
                           FontWeight="DemiBold"
                           FontSize="15"
                           HorizontalAlignment="Center"
-                          HorizontalContentAlignment="Center"
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
                           ></TextBox>
 
         <ComboBox x:Name="Cb_depa_Empl" ItemsSource="{Binding departments}"
@@ -245,7 +244,7 @@
                           FontWeight="DemiBold"
                           FontSize="15"
                           HorizontalAlignment="Left"
-                          HorizontalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
                           ></TextBox>
 
         <TextBlock Grid.Column="6"
@@ -267,7 +266,7 @@
                           FontWeight="DemiBold"
                           FontSize="15"
                           HorizontalAlignment="Left"
-                          HorizontalContentAlignment="Center"
+                          HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"
                           ></TextBox>
 
         <!--Кнопка Вернуться-->
